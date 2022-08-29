@@ -2,6 +2,7 @@
 
 
 namespace App\Helpers;
+
 use Illuminate\Http\Request;
 use App\Models\LogActivities as LogActivityModel;
 
@@ -10,16 +11,15 @@ class LogActivity
 {
 
 
-    public static function addToLog($subject)
+    public static function addToLog($actionId, $userId, $bookId = null, $equipmentId = null)
     {
-        $log = [];
-        $log['subject'] = $subject;
-        $log['url'] = Request::fullUrl();
-        $log['method'] = Request::method();
-        $log['ip'] = Request::ip();
-        $log['agent'] = Request::header('user-agent');
-        $log['user_id'] = auth()->check() ? auth()->user()->id : 1;
-        LogActivityModel::create($log);
+            $log = [];
+            $log['actionId'] = $actionId;
+            $log['bookId'] = $bookId;
+            $log['equipmentId'] = $equipmentId;
+            $log['userId'] = $userId;
+            LogActivityModel::create($log);
+
     }
 
 

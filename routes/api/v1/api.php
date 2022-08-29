@@ -47,3 +47,6 @@ Route::prefix('/inventory')->group(function () {
     //Get all equipments
     Route::get('/equipment', 'api\v1\InventoryController@getEquipments');
 });
+
+Route::get('add-to-log', 'api\v1\LogController@myTestAddToLog');
+Route::get('logActivity', 'api\v1\LogController@logActivity');

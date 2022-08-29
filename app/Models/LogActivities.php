@@ -9,7 +9,7 @@ class LogActivities extends Model
 {
 
     protected $fillable = [
-        'actionid', 'bookid', 'equipmentid', 'userid'
+        'actionId', 'bookId', 'equipmentId', 'userId'
     ];
 
     public function actions(){
