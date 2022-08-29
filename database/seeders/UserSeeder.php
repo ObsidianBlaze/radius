@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class RoleSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,9 +16,9 @@ class RoleSeeder extends Seeder
     public function run()
     {
         //Making the seeders.
-        DB::table('roles')->insert([
-            ['name' => "user",'created_at' => Carbon::now()],
-            ['name' => "admin",'created_at' => Carbon::now()],
+        DB::table('users')->insert([
+            ['name' => "James",'email' => "james@gmail.com",'created_at' => Carbon::now()],
+            ['name' => "Daniel",'email' => "dan@gmail.com",'created_at' => Carbon::now()],
         ]);
 
     }
