@@ -29,7 +29,7 @@ class InventoryController extends Controller
                     "message" => $validate->errors(),
                 ], 400);
 
-        //Creating an instance of the subcategory model.
+        //Creating an instance of the book model.
         $books = new Books();
 
 
@@ -99,8 +99,54 @@ class InventoryController extends Controller
         }
     }
 
+    //Delete a book
     public function deleteBook($id){
-        return 3;
+        //Checking if an id exist
+        $book = Books::find($id);
+
+        if ($book) {
+            //Deleting the book
+            $book->delete($id);
+            //Response if book exists.
+            return response()->json(
+                [
+                    "status" => "true",
+                    "message" => "book deleted.",
+                    "data" => []
+                ]);
+        } else {
+            //Response if the book does not exist in the database
+            return response()->json(
+                [
+                    "status" => "false",
+                    "message" => "book does not exist.",
+                    "data" => [],
+                ], 404);
+        }
+
     }
 
+//    Get a single book
+    public function getBook($id){
+        //Checking if an id exist
+        $book = Books::find($id);
+        if ($book) {
+            //Response if book exists.
+            return response()->json(
+                [
+                    "status" => "true",
+                    "message" => "",
+                    "data" => $book
+                ]);
+
+        } else {
+            //Response if the book does not exist in the database
+            return response()->json(
+                [
+                    "status" => "false",
+                    "message" => "book does not exist.",
+                    "data" => []
+                ], 404);
+        }
+    }
 }

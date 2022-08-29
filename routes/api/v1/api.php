@@ -22,10 +22,11 @@ Route::prefix('/inventory')->group(function () {
     //Update a book
     Route::put('/book/{id}', 'api\v1\InventoryController@updateBook');
 
-
     //Delete a book
     Route::delete('/book/{id}', 'api\v1\InventoryController@deleteBook');
 
+    //Get a book
+    Route::get('/book/{id}', 'api\v1\InventoryController@getBook');
 
     // Add a LGA
     Route::post('/lga', 'api\v1\InventoryController@addLGA');
