@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class LogActivities extends Model
 {
+
+    protected $fillable = [
+        'actionid', 'bookid', 'equipmentid', 'userid'
+    ];
+
     public function actions(){
         return $this->hasMany(Actions::class);
     }
