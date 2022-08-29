@@ -12,4 +12,10 @@ class Books extends Model
         'name',
         'isbn'
     ];
+
+    public function logs(){
+        return $this->hasMany(LogActivities::class);
+    }
+
+
 }

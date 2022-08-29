@@ -10,4 +10,10 @@ class Equipments extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function logs(){
+        return $this->hasMany(LogActivities::class);
+    }
+
+
 }
