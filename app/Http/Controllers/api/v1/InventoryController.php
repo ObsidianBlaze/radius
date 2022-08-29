@@ -48,4 +48,59 @@ class InventoryController extends Controller
                 "data" => $books
             ], 201);
     }
+
+    //update a book
+    public function updateBook(Request $request, $id)    {
+        //Validating and storing a users data in a variable
+        $validate = Validator::make($request->all(), [
+            'name' => 'bail|required|string',
+            'isbn' => 'bail|required|string'
+            //Note the bail keyword is used to terminate the validation if one of the fields does not meet the requirement.
+        ]);
+
+        //Returning an error when the user provides wrong data.
+        if ($validate->fails())
+
+            //Response if the users input does not match the validation.
+            return response()->json(
+                [
+                    "status" => "false",
+                    "message" => $validate->errors(),
+                ], 400);
+
+        //Checking if an id exist
+        $book = Books::find($id);
+        if ($book) {
+            //updating the book
+            $book->fill([
+                'name' => $request->name,
+                'isbn' => $request->isbn,
+            ]);
+
+            //Updating the book
+            $book->save();
+
+            //Response if book exists.
+            return response()->json(
+                [
+                    "status" => "true",
+                    "message" => "book Updated Successfully.",
+                    "data" => $book
+                ]);
+        } else {
+            //Response if the book does not exist in the database
+            return response()->json(
+                [
+                    "status" => "false",
+                    "message" => "book does not exist.",
+                    "data" => []
+                ], 404);
+
+        }
+    }
+
+    public function deleteBook($id){
+        return 3;
+    }
+
 }

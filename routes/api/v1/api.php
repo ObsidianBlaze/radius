@@ -14,12 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Managing books and equipments
 Route::prefix('/inventory')->group(function () {
-//    Get all inventory
-    Route::get('/', 'api\v1\InventoryController@getState');
+//  Create a new book
+    Route::post('/book', 'api\v1\InventoryController@createBook');
 
-//  Create a new book / equipment
-    Route::post('/create_book', 'api\v1\InventoryController@createBook');
+    //Update a book
+    Route::put('/book/{id}', 'api\v1\InventoryController@updateBook');
+
+
+    //Delete a book
+    Route::delete('/book/{id}', 'api\v1\InventoryController@deleteBook');
+
 
     // Add a LGA
     Route::post('/lga', 'api\v1\InventoryController@addLGA');
