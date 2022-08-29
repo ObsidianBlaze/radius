@@ -14,3 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('/inventory')->group(function () {
+//    Get all inventory
+    Route::get('/', 'api\v1\InventoryController@getState');
+
+//  Create a new book / equipment
+    Route::post('/create_book', 'api\v1\InventoryController@createBook');
+
+    // Add a LGA
+    Route::post('/lga', 'api\v1\InventoryController@addLGA');
+
+    //Delete a LGA
+    Route::delete('/lga/{id}', 'api\v1\InventoryController@deleteLGA');
+
+
+});
