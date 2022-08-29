@@ -28,11 +28,22 @@ Route::prefix('/inventory')->group(function () {
     //Get a book
     Route::get('/book/{id}', 'api\v1\InventoryController@getBook');
 
-    // Add a LGA
-    Route::post('/lga', 'api\v1\InventoryController@addLGA');
-
-    //Delete a LGA
-    Route::delete('/lga/{id}', 'api\v1\InventoryController@deleteLGA');
+    //Get all books
+    Route::get('/book', 'api\v1\InventoryController@getBooks');
 
 
+//  Create a new equipment
+    Route::post('/equipment', 'api\v1\InventoryController@createEquipment');
+
+    //Update a equipment
+    Route::put('/equipment/{id}', 'api\v1\InventoryController@updateEquipment');
+
+    //Delete a equipment
+    Route::delete('/equipment/{id}', 'api\v1\InventoryController@deleteEquipment');
+
+    //Get a equipment
+    Route::get('/equipment/{id}', 'api\v1\InventoryController@getEquipment');
+
+    //Get all equipments
+    Route::get('/equipment', 'api\v1\InventoryController@getEquipments');
 });
