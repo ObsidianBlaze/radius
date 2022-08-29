@@ -13,12 +13,12 @@ class LogActivity
 
     public static function addToLog($actionId, $userId, $bookId = null, $equipmentId = null)
     {
-            $log = [];
-            $log['actionId'] = $actionId;
-            $log['bookId'] = $bookId;
-            $log['equipmentId'] = $equipmentId;
-            $log['userId'] = $userId;
-            LogActivityModel::create($log);
+        $log = [];
+        $log['actionId'] = $actionId;
+        $log['userId'] = $userId;
+        $log['bookId'] = $bookId;
+        $log['equipmentId'] = $equipmentId;
+        LogActivityModel::create($log);
 
     }
 

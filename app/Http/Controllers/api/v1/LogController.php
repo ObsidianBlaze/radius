@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
+use Hamcrest\Core\JavaForm;
 use Illuminate\Http\Request;
 use App\Helpers\LogActivity;
 
@@ -25,8 +26,14 @@ class LogController extends Controller
      */
     public function myTestAddToLog()
     {
-        LogActivity::addToLog(1,1,2);
-        dd('log insert successfully.');
+        LogActivity::addToLog("2","2","1");
+
+        return response(
+            [
+                "status" => "true",
+                "message" => "Log Created Succesfully",
+                "data" => []
+            ]);
     }
 
 
@@ -39,6 +46,5 @@ class LogController extends Controller
     {
         $logs = LogActivity::logActivityLists();
         return $logs;
-//        return view('logActivity',compact('logs'));
     }
 }

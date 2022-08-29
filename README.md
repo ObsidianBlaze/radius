@@ -1,9 +1,10 @@
-#Config:
+# How to run the app
+composer install
+php artisan migrate:fresh --seed
+php artisan serve
+
+# Config:
 Database name => radius
 
-#seed
-Seed action(rented,returned)
-seed users(name, email)
-
-#Postman collection
+# Postman collection
 https://documenter.getpostman.com/view/10977711/VUxKVAZG

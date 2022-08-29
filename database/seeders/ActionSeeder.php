@@ -21,7 +21,6 @@ class ActionSeeder extends Seeder
         DB::table('actions')->insert([
             ['type' => "rented",'created_at' => Carbon::now()],
             ['type' => "returned",'created_at' => Carbon::now()],
-            ['type' => "new",'created_at' => Carbon::now()]
         ]);
     }
 }

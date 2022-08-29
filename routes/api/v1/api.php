@@ -48,5 +48,14 @@ Route::prefix('/inventory')->group(function () {
     Route::get('/equipment', 'api\v1\InventoryController@getEquipments');
 });
 
+//Creating a log
 Route::get('add-to-log', 'api\v1\LogController@myTestAddToLog');
+
+//Getting the events on a log
 Route::get('logActivity', 'api\v1\LogController@logActivity');
+
+//Managing books and equipments
+Route::prefix('/statistics')->group(function () {
+//  Create a new book
+    Route::get('/books/rented/{period}', 'api\v1\StatisticsController@rentedBook');
+});
