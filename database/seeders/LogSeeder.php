@@ -20,7 +20,12 @@ class LogSeeder extends Seeder
             ['actionId' => "1",'bookId' => "1", "userId" => "2",'created_at' => Carbon::create(2012, 4, 20, 0)],
             ['actionId' => "1",'bookId' => "2", "userId" => "1",'created_at' => Carbon::create(2012, 5, 14, 0)],
             ['actionId' => "2",'bookId' => "1", "userId" => "2",'created_at' => Carbon::create(2013, 1, 11, 0)],
+            ['actionId' => "1",'bookId' => "1", "userId" => "1",'created_at' => Carbon::create(2013, 6, 15, 0)],
 
+        ]);
+
+        DB::table('log_activities')->insert([
+            ['actionId' => "1",'equipmentId' => "2", "userId" => "2",'created_at' => Carbon::create(2013, 4, 11, 0)],
         ]);
 
     }

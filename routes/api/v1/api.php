@@ -54,8 +54,13 @@ Route::get('add-to-log', 'api\v1\LogController@myTestAddToLog');
 //Getting the events on a log
 Route::get('logActivity', 'api\v1\LogController@logActivity');
 
-//Managing books and equipments
+//Statistics for books and equipments
 Route::prefix('/statistics')->group(function () {
-//  Create a new book
+//  Filter rented books
     Route::get('/books/rented/{period}', 'api\v1\StatisticsController@rentedBook');
+
+    //Filter returned books
+    Route::get('/books/returned/{period}', 'api\v1\StatisticsController@returnedBook');
+
+
 });
