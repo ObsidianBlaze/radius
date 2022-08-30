@@ -1,6 +1,8 @@
 # How to run the app
 composer install
+<br>
 php artisan migrate:fresh --seed
+<br>
 php artisan serve
 
 # Config:

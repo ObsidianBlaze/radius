@@ -62,5 +62,12 @@ Route::prefix('/statistics')->group(function () {
     //Filter returned books
     Route::get('/books/returned/{period}', 'api\v1\StatisticsController@returnedBook');
 
+    //Filter rented equipments
+    Route::get('/equipments/rented/{period}', 'api\v1\StatisticsController@rentedEquipment');
+
+    //Filter returned equipments
+    Route::get('/equipments/returned/{period}', 'api\v1\StatisticsController@returnedEquipment');
+
+
 
 });

@@ -26,6 +26,8 @@ class LogSeeder extends Seeder
 
         DB::table('log_activities')->insert([
             ['actionId' => "1",'equipmentId' => "2", "userId" => "2",'created_at' => Carbon::create(2013, 4, 11, 0)],
+            ['actionId' => "2",'equipmentId' => "2", "userId" => "2",'created_at' => Carbon::create(2015, 4, 11, 0)],
+
         ]);
 
     }
